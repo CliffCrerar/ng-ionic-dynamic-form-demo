@@ -17,21 +17,22 @@ export class HttpService {
 
     constructor(private http: HttpClient, private loadingController: LoadingController) {
         this.presentLoading();
-        this.runGetData();
+        this.getFormData();
     }
 
     dataSubscription() {
         return this.httpSubject;
     }
 
-    runGetData() {
+    getFormData() {
         this.httpHeaders = new HttpHeaders()
-            .append('Authorization', 'Basic Zm9ybXMtZGI6ZWJLUWs1akVDcFNFNERaOXVwWG0=');
+            .append('Authorization', 'Basic cGZBZG1pbjphczQyZGEzZHNmNWxrYTEzNmRzM2ZhNGQ1MTJkc2Zha2xnaGl3ZXJuMjEzMQ==');
         this.http.get(
-            'https://pouchdb-server-docker-image-vqs2epe7sq-uc.a.run.app/dynamic-forms/_all_docs?include_docs=true&conflicts=true',
+            // 'https://pouchdb-server-docker-image-vqs2epe7sq-uc.a.run.app/dynamic-forms/_all_docs?include_docs=true&conflicts=true',
+            'http://35.221.48.218:5984/dynamic-forms-demo/_all_docs?include_docs=true',
             {headers: this.httpHeaders}).subscribe((response: ResponseObject) => {
             const res: any = new ResponseObject(response).formData();
-            console.log(res);
+            console.log(response);
             this.httpSubject.next(res);
         });
     }

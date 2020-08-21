@@ -23,6 +23,7 @@ export class DynamicFormComponent implements OnInit {
     ngOnInit() {
         this.deliveryDate = null;
         console.log(this.formData);
+        // this.http.getFormOneData();
         this.http.dataSubscription().subscribe(data => {
             console.log(data);
             this.formData = data.filter((form: any) => form._id === this.formId)[0].formControls as any;

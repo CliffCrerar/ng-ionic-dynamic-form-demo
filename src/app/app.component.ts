@@ -22,11 +22,11 @@ export class AppComponent implements OnInit {
       url: '/folder/Example Form Two',
       icon: 'paper-plane'
     },
-    // {
-    //   title: 'Favorites',
-    //   url: '/folder/Favorites',
-    //   icon: 'heart'
-    // },
+    {
+      title: 'Details',
+      url: '/folder/Details',
+      icon: 'archive'
+    },
     // {
     //   title: 'Archived',
     //   url: '/folder/Archived',

@@ -84,7 +84,7 @@
 
                         <ion-label position="floating">MMM DD, YYYY HH:mm</ion-label>
                         <ion-datetime #picker [name]="ctr.name" display-format="MMM DD, YYYY HH:mm" (ionChange)="updateDateValue(picker)"
-                                      placeholder="Select Date" [min]="ctr.min==='now'?getNowDate():ctr.min"></ion-datetime>
+                                      placeholder="Select Date"></ion-datetime>
 
                     <ion-icon slot="start" size="large" name="calendar"></ion-icon>
                 </ion-item>
