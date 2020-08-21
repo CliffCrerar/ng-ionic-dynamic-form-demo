@@ -1,21 +1,42 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{ folder }}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">{{ folder }}</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <div id="container">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>
+                    <strong class="capitalize">{{ folder }}</strong>
+
+                </ion-card-title>
+                <ion-card-subtitle>
+                    Form loaded from this source
+                </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <app-form-one *ngIf="folder==='Example Form One'"></app-form-one>
+                <app-form-two *ngIf="folder==='Example Form Two'"></app-form-two>
+            </ion-card-content>
+        </ion-card>
+
+
+    </div>
+    <ion-infinite-scroll threshold="0%" #IonInfiniteScroll>
+        <ion-infinite-scroll-content
+                loadingSpinner="bubbles"
+                loadingText="Loading more data…">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

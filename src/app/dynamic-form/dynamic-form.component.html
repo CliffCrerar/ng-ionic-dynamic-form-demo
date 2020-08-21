@@ -1,0 +1,110 @@
+<div *ngIf="showForm">
+    <ng-container *ngFor="let ctr of formData; let i = index">
+        <ol [ngSwitch]="ctr.controlType" style="list-style: none">
+            <li *ngSwitchCase="'input'">
+                <span>{{ctr | templatelog}}</span>
+
+                <ion-item-divider>
+                    Question {{i + 1}}
+                </ion-item-divider>
+
+                <ion-item>
+                    <ion-icon name="help" slot="start"></ion-icon>
+                    <ion-label>{{ctr.prompt}}</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="arrow-forward" slot="start"></ion-icon>
+                    <ion-label slot="start">{{ctr.caption}}</ion-label>
+                    <ion-input name="input" type="text"></ion-input>
+                </ion-item>
+            </li>
+
+            <li *ngSwitchCase="'select'" class="select">
+
+                <ion-item-divider>
+                    Question {{i + 1}}
+                </ion-item-divider>
+
+                <ion-item>
+                    <ion-icon name="help" slot="start"></ion-icon>
+                    <ion-label>{{ctr.prompt}}</ion-label>
+                </ion-item>
+
+                <ion-item-divider *ngIf="ctr.caption">
+                    {{ctr.caption}}
+                </ion-item-divider>
+
+                <ion-radio-group [name]="ctr.name" mode="ios" (ionChange)="onSelectChange($event)">
+                    <ion-item line="full" *ngFor="let opt of ctr.options">
+                        <ion-radio [name]="ctr.name" [value]="opt"></ion-radio>
+                        <ion-label align="center">
+                            <span [ngStyle]="{color: opt}">{{opt}}</span>
+                        </ion-label>
+                    </ion-item>
+                </ion-radio-group>
+                <!--</ion-buttons>-->
+            </li>
+
+            <li *ngSwitchCase="'multiSelect'" class="select">
+
+                <ion-item-divider>
+                    Question {{i + 1}}
+                </ion-item-divider>
+
+                <ion-item>
+                    <ion-icon name="help" slot="start"></ion-icon>
+                    <ion-label>{{ctr.prompt}}</ion-label>
+                </ion-item>
+
+                <ion-item-divider *ngIf="ctr.caption">
+                    {{ctr.caption}}
+                </ion-item-divider>
+
+                <ion-radio-group [name]="ctr.name" mode="ios" (ionChange)="onSelectChange($event)">
+                    <ion-item line="full" *ngFor="let opt of ctr.options">
+                        <ion-checkbox [name]="ctr.name" [value]="opt"></ion-checkbox>
+                        <ion-label align="center">
+                            <span>{{opt}}</span>
+                        </ion-label>
+                    </ion-item>
+                </ion-radio-group>
+                <!--</ion-buttons>-->
+            </li>
+
+            <li *ngSwitchCase="'datePicker'">
+                <ion-item-divider>
+                    Question {{i + 1}}
+                </ion-item-divider>
+                <ion-item>
+                    <ion-icon name="help" slot="start"></ion-icon>
+                    <ion-label>{{ctr.prompt}}</ion-label>
+                </ion-item>
+
+                <ion-item type="button" lines="inset">
+
+                        <ion-label position="floating">MMM DD, YYYY HH:mm</ion-label>
+                        <ion-datetime #picker [name]="ctr.name" display-format="MMM DD, YYYY HH:mm" (ionChange)="updateDateValue(picker)"
+                                      placeholder="Select Date" [min]="ctr.min==='now'?getNowDate():ctr.min"></ion-datetime>
+
+                    <ion-icon slot="start" size="large" name="calendar"></ion-icon>
+                </ion-item>
+
+                <ion-item-divider>
+                    {{ctr.caption}}
+                </ion-item-divider>
+
+                <ion-item align="center">
+                    <ion-text color="success" >{{picker.value}}</ion-text>
+                </ion-item>
+
+            </li>
+
+        </ol>
+    </ng-container>
+
+    <ion-item-divider lines="full">
+        End of Questions
+    </ion-item-divider>
+
+    <ion-button>Submit</ion-button>
+</div>
