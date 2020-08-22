@@ -21,10 +21,7 @@ export class FolderPage implements OnInit {
     @ViewChild(IonInfiniteScroll, {static: true}) infiniteScroll: IonInfiniteScroll;
     public formOne: FormOneModel;
     public formTwo: FormTwoModel;
-
     constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) {
-
-
     }
 
     ngOnInit() {
@@ -32,8 +29,7 @@ export class FolderPage implements OnInit {
                 console.log(event);
                 this.infiniteScroll.disabled = true;
             }
-        )
-        ;
+        );
         this.folder = this.activatedRoute.snapshot.paramMap.get('id');
         console.log(this.infiniteScroll);
     }

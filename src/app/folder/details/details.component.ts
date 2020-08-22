@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {}
-
+  imgPath: string;
+  constructor() {
+    this.imgPath = '../../../assets/sketch.jpeg';
+  }
+  ngOnInit() { }
 }

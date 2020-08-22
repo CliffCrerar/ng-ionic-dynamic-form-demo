@@ -13,6 +13,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {DynamicFormComponent} from '../dynamic-form/dynamic-form.component';
 import {TemplateLoggerPipe} from '../template-loggere.pipe';
 import {HttpService} from '../dynamic-form/http.service';
+import {DetailsComponent} from './details/details.component';
+import { CodeDisplayComponent } from '../code-display/code-display.component';
 
 @NgModule({
     imports: [
@@ -24,7 +26,7 @@ import {HttpService} from '../dynamic-form/http.service';
         HttpClientModule
     ],
     providers: [HttpService],
-    declarations: [FolderPage, FormOneComponent, FormTwoComponent, DynamicFormComponent, TemplateLoggerPipe]
+    declarations: [FolderPage, FormOneComponent, FormTwoComponent, DynamicFormComponent, TemplateLoggerPipe, DetailsComponent]
 })
 export class FolderPageModule {
 }

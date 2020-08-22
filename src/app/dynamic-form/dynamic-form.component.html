@@ -2,7 +2,6 @@
     <ng-container *ngFor="let ctr of formData; let i = index">
         <ol [ngSwitch]="ctr.controlType" style="list-style: none">
             <li *ngSwitchCase="'input'">
-                <span>{{ctr | templatelog}}</span>
 
                 <ion-item-divider>
                     Question {{i + 1}}

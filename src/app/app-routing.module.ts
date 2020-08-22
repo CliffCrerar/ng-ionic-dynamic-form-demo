@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Example%20Form%20Two',
+    redirectTo: 'folder/Experiment%20Description',
     pathMatch: 'full'
   },
   {
