@@ -1,4 +1,5 @@
 # Dynamic Forms
+![CI](https://github.com/CliffCrerar/ng-ionic-dynamic-form-demo/workflows/CI/badge.svg)
 
 * Forms are created with a single component in multiple implementations.
 
