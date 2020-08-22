@@ -31,8 +31,8 @@ jobs:
 
     - uses: prewk/s3-cp-action@master
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESSKEY }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'eu-west-1' # optional: defaults to us-east-1
         SOURCE: 'www'
         DEST: 's3://dynamic-form-demo.softwarecraft.co.za'
