@@ -29,8 +29,6 @@ jobs:
 
     - run: npm run build
 
-    # Runs a set of commands using the runners shell
-    - uses: actions/checkout@master
     - uses: prewk/s3-cp-action@master
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESSKEY }}
