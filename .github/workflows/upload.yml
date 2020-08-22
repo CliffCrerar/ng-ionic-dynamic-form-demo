@@ -34,6 +34,6 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESSKEY }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET }}
         AWS_REGION: 'eu-west-1' # optional: defaults to us-east-1
-        SOURCE: './www'
+        SOURCE: 'www'
         DEST: 's3://dynamic-form-demo.softwarecraft.co.za'
 
