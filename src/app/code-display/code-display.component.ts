@@ -20,7 +20,7 @@ export class CodeDisplayComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.http.formOne.subscribe(f=>{
+        this.http.formOne.subscribe(f => {
             this.formOne = this.displayFormat(f);
         });
         this.http.formTwo.subscribe(f => {

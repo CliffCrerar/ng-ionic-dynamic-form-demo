@@ -36,7 +36,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should initialize the app', async () => {
+  xit('should initialize the app', async () => {
     TestBed.createComponent(AppComponent);
     expect(platformSpy.ready).toHaveBeenCalled();
     await platformReadySpy;
@@ -44,7 +44,7 @@ describe('AppComponent', () => {
     expect(splashScreenSpy.hide).toHaveBeenCalled();
   });
 
-  it('should have menu labels', async () => {
+  xit('should have menu labels', async () => {
     const fixture = await TestBed.createComponent(AppComponent);
     await fixture.detectChanges();
     const app = fixture.nativeElement;
@@ -54,7 +54,7 @@ describe('AppComponent', () => {
     expect(menuItems[1].textContent).toContain('Outbox');
   });
 
-  it('should have urls', async () => {
+  xit('should have urls', async () => {
     const fixture = await TestBed.createComponent(AppComponent);
     await fixture.detectChanges();
     const app = fixture.nativeElement;
