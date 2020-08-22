@@ -16,6 +16,7 @@ import {log} from 'util';
 export class AppComponent implements OnInit {
 
     public dto: any;
+    public location: Location
     public path: string;
     public displaySide: boolean;
     public selectedIndex = 0;
@@ -46,8 +47,18 @@ export class AppComponent implements OnInit {
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
     ) {
+        this.location = location as Location;
         this.path = this.getPath();
         this.initializeApp();
+        (window as any).onunload = function(){
+            console.log('window unload')
+            this.location.href='/'
+        }
+    }
+
+    @HostListener('window.onunload') gotoRoot =() => {
+        // console.log('window unload')
+        // location.href='/'
     }
 
     initializeApp() {
@@ -58,7 +69,10 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+
     }
+
+
 
     selectPage = () => this.appPages.filter(o => o.title === this.path)[0];
 
