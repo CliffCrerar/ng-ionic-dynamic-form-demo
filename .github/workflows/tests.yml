@@ -32,7 +32,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: tests
-        path: tests/
+        path: coverage/
     - name: Upload coverage data
       uses: actions/upload-artifact@v2
       with:
@@ -42,12 +42,12 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: coverage-summary.json
-        path: coverage/stslib/coverage-summary.json
+        path: coverage/coverage-summary.json
     - name: Comment test coverage on commit
       uses: jacobbowdoin/comment-test-coverage@1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        path: coverage/stslib/coverage-summary.json
+        path: coverage/coverage-summary.json
 
     # Coverage badges will be updated on any branch except protected
     # branches 'develop' and 'master' and on a pull requests
@@ -55,6 +55,6 @@ jobs:
       uses:  demyanets/angular-coverage-badges-action@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        coverage-summary-path: coverage/stslib/coverage-summary.json
+        coverage-summary-path: coverage/coverage-summary.json
         protected-branches: '["master",  "develop"]'
         write-debug-logs: true
