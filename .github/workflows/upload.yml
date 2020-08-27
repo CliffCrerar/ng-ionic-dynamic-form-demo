@@ -30,6 +30,11 @@ jobs:
     - run: npm run build
 
     - run: echo $(pwd)
+      
+    - uses: actions/upload-artifact@v2
+      with:
+        name: dynamic-demo-build-artifact
+        path: www
 #minor
     - uses: prewk/s3-cp-action@master
       env:
