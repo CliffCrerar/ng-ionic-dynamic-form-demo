@@ -19,7 +19,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@master
-
+    - uses: prewk/s3-cp-action@master
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -36,11 +36,11 @@ jobs:
         name: dynamic-form-demo-build-artifact
         path: www/
 #minor
-#    - uses: prewk/s3-cp-action@master
-#      env:
-#        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#        AWS_REGION: 'eu-west-1' # optional: defaults to us-east-1
-#        SOURCE: '/home/runner/work/ng-ionic-dynamic-form-demo/ng-ionic-dynamic-form-demo/www'
-#        DEST: 's3://dynamic-form-demo.softwarecraft.co.za'
+
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'eu-west-1' # optional: defaults to us-east-1
+        SOURCE: s3://dynamic-form-demo.softwarecraft.co.za
+        DEST: www/
 
